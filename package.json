@@ -1,0 +1,19 @@
+{
+  "name": "techdegree-angular-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon ./src/index.js localhost 5000",
+    "db": "node ./src/api/data/seed.js"
+  },
+  "devDependencies": {
+    "angular": "^1.6.4",
+    "angular-route": "^1.6.4",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "nedb": "^1.8.0",
+    "nodemon": "^1.11.0"
+  }
+}

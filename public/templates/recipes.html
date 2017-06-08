@@ -1,0 +1,46 @@
+<div class="grid-100 row controls">
+  <div class="grid-30">
+    <select ng-model="category" ng-options="category.name for category in categories" ng-init="category='All Categories'" ng-change="getRecipesForCategory(category)">
+      <option value="">All Categories</option>
+      <option value ="{{category.name}}" ng-repeat="category in categories">{{category.name}}</option>
+    </select>
+  </div>
+  <div class="grid-70">
+    <div class="flush-right">
+      <button ng-click="newRecipePath()">+ Add Recipe</button>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+
+<div ng-show="recipes.length === 0" class="grid-100 row">
+  <div class="grid-70">
+    <p>No recipes found!</p>
+  </div>
+</div>
+
+<div ng-hide="recipes.length === 0" ng-repeat="recipe in recipes" class="grid-100 row addHover">
+  
+  <a ng-href="#!/edit/{{recipe._id}}">
+    <div class="grid-70">
+      <p>
+        {{recipe.name}}
+      </p>
+    </div>
+  </a>
+  <div class="hoverBlock">
+    <div class="grid-30">
+      <div class="flush-right">
+        <p>
+          <!-- TODO Replace this anchor element's href attribute with a 
+            directive so that you can route the user to the Recipe Detail 
+            screen when they click on the 'Edit' link. -->
+          <a href="" ng-click="editRecipe(recipe._id)"> <img src="images/edit.svg" height="12px"> Edit </a>
+          <!-- TODO Add a directive to this anchor element so that you can 
+            delete the recipe when the user clicks on the 'Delete' link. -->
+          <a ng-click="deleteRecipe(recipe._id, $index)" class="no-action-link"> <img src="images/delete.svg" height="12px"> Delete </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
